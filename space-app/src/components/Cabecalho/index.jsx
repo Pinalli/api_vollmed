@@ -1,5 +1,5 @@
 import {styled} from "styled-components";
-
+import SearchBar from "../SearchBar";
 
 const StyledHeader = styled.header`
     padding: 60px 0;
@@ -14,7 +14,8 @@ const StyledHeader = styled.header`
 const Header  = () => {
   return (
  <StyledHeader>
-    <img src="/images/logo.png" alt="Logo " />    
+    <img src="/images/logo.png" alt="Logo " />   
+    <SearchBar/> 
  </StyledHeader>
   );
 }
