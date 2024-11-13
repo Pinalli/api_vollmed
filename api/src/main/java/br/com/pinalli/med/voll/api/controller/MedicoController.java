@@ -1,12 +1,14 @@
 package br.com.pinalli.med.voll.api.controller;
 
+import br.com.pinalli.med.voll.api.model.DataList;
 import br.com.pinalli.med.voll.api.model.DataRegister;
 import br.com.pinalli.med.voll.api.model.Medico;
 import br.com.pinalli.med.voll.api.repository.MedicoRepository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("medicos")
@@ -19,7 +21,14 @@ public class MedicoController {
     }
 
     @PostMapping
-    public void register(@RequestBody DataRegister data){
+    @Transactional
+    public void register(@RequestBody @Valid DataRegister data){
         repository.save(new Medico(data));
+    }
+
+    @GetMapping
+    public List<DataList> list(){
+        return repository.findAll().stream().map(DataList::new).toList();
+
     }
 }

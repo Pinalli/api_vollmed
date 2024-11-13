@@ -1,0 +1,20 @@
+
+POST http://localhost:8080/medicos
+Content-Type: application/json
+
+{
+"nome": "Paula  Azevedo",
+"email": "paula.azevedo@voll.med",
+"crm": "345655",
+  "telefone": "519995654",
+"especialidade": "CARDIOLOGIA",
+"endereco": {
+    "logradouro": "rua 1",
+    "bairro": "bairro",
+    "cep": "45345678",
+    "cidade": "Brasilia",
+    "uf": "DF",
+    "numero": "1"
+
+    }
+}
