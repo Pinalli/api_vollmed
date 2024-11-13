@@ -1,4 +1,4 @@
-package br.com.pinalli.med.voll.api.endereco;
+package br.com.pinalli.med.voll.api.model;
 
 public record DadosEndereco(String logradouro, String bairro, String cep, String cidade, String uf, String complemento, String numero) {
 }

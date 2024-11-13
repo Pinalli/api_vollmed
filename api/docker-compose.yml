@@ -5,15 +5,17 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/vollmed
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-vollmed:3306/vollmed
       - SPRING_DATASOURCE_USERNAME=user
       - SPRING_DATASOURCE_PASSWORD=password
     depends_on:
-      - db
+      mysql-vollmed:
+        condition: service_healthy
     restart: unless-stopped  # Adiciona resiliência
 
-  db:
+  mysql-vollmed:
     image: mysql:8.0
+    container_name:  mysql-vollmed
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: vollmed
@@ -21,4 +23,12 @@ services:
       MYSQL_PASSWORD: password
     ports:
       - "3306:3306"
+
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "mysql-vollmed", "-u", "root", "-p$$MYSQL_ROOT_PASSWORD" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
     restart: unless-stopped  # Adiciona resiliência

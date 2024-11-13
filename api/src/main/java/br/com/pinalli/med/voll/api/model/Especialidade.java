@@ -1,4 +1,4 @@
-package br.com.pinalli.med.voll.api.medico;
+package br.com.pinalli.med.voll.api.model;
 
 public enum Especialidade {
 

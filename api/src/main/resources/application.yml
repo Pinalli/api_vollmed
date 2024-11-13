@@ -2,7 +2,7 @@ spring:
   application:
     name: api
   datasource:
-    url: jdbc:mysql://db:3306/vollmed
+    url: jdbc:mysql://mysql-vollmed:3306/vollmed?connectTimeout=30000&socketTimeout=60000
     username: user
     password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -16,6 +16,7 @@ spring:
   flyway:
     enabled: true
     baseline-on-migrate: true
+    validate-on-migrate: false
 
 server:
   port: 8080
