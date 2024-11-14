@@ -29,7 +29,10 @@ public class Doctor {
     @Embedded
     private AddressDoctor endereco;
 
+    private boolean active;
+
     public Doctor(DataRegisterDoctor data) {
+        this.active = true;
         this.nome = data.nome();
         this.email= data.email();
         this.telefone = data.telefone();
@@ -47,7 +50,11 @@ public class Doctor {
             this.telefone = update.telefone();
         }
         if(update.endereco() != null){
-            this.endereco.updateAddress(update.endereco());
+            this.endereco.updateAddressDoctor(update.endereco());
         }
+    }
+
+    public void delete() {
+        this.active = false;
     }
 }

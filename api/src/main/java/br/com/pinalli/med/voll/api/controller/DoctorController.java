@@ -1,9 +1,7 @@
 package br.com.pinalli.med.voll.api.controller;
 
 import br.com.pinalli.med.voll.api.model.DataListDoctor;
-import br.com.pinalli.med.voll.api.model.DataRegister;
 import br.com.pinalli.med.voll.api.model.DataRegisterDoctor;
-import br.com.pinalli.med.voll.api.model.DataUpdateRegister;
 import br.com.pinalli.med.voll.api.model.DataUpdateRegisterDoctor;
 import br.com.pinalli.med.voll.api.model.Doctor;
 import br.com.pinalli.med.voll.api.repository.DoctorRepository;
@@ -32,13 +30,21 @@ public class DoctorController {
 
     @GetMapping
     public Page<DataListDoctor> list(Pageable pagination){
-        return repository.findAll(pagination).map(DataListDoctor::new);
+        return repository.findAllByActiveTrue(pagination).map(DataListDoctor::new);
     }
 
     @PutMapping
     @Transactional
-    public void update(@RequestBody @Valid DataUpdateRegisterDoctor update){
-        var medico = repository.getReferenceById(update.id());
-        medico.updateData(update);
+    public void update(@RequestBody @Valid DataUpdateRegisterDoctor data){
+        var doctor = repository.getReferenceById(data.id());
+        doctor.updateData(data);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void delete(@PathVariable Long id){
+       // repository.deleteById(id); //exclusao fisica
+        var doctor = repository.getReferenceById(id); //exclusao lógica
+        doctor.delete();
     }
 }

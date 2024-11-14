@@ -29,7 +29,7 @@ public class AddressDoctor {
         this.complemento = data.complemento();
     }
 
-    public void updateAddress(DataAddressDoctor endereco) {
+    public void updateAddressDoctor(DataAddressDoctor endereco) {
         if (endereco.logradouro() != null){
             this.logradouro = endereco.logradouro();
         }
