@@ -3,7 +3,7 @@ PUT  http://localhost:8080/medicos
 Content-Type: application/json
 
 {
-  "id": 1,
-  "nome": "Paula  Azevedo da Silva"
+  "id": 9,
+  "telefone":"519444444"
 
 }

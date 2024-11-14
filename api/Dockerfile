@@ -25,7 +25,7 @@ ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 
 # Copiar o JAR
-COPY --from=builder /app/target/api-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=builder /app/target/api_vollmed-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8080
 ENTRYPOINT ["java", "-Dfile.encoding=UTF-8", "-jar", "app.jar"]

@@ -3,10 +3,10 @@ POST http://localhost:8080/medicos
 Content-Type: application/json
 
 {
-"nome": "Maria  Gasolina",
-"email": "maria.gasolina@voll.med",
-"crm": "45678",
-  "telefone": "5196666666",
+"nome": "Gabriel Milano",
+"email": "gabriel.milano@voll.med",
+"crm": "21678",
+  "telefone": "5192222222",
 "especialidade": "DERMATOLOGIA",
 "endereco": {
     "logradouro": "rua 1",
