@@ -1,6 +1,6 @@
 spring:
   application:
-    name: api
+    name: api-vollmed
   datasource:
     url: jdbc:mysql://mysql-vollmed:3306/vollmed?connectTimeout=30000&socketTimeout=60000
     username: user
@@ -12,6 +12,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
     show-sql: true
   flyway:
     enabled: true

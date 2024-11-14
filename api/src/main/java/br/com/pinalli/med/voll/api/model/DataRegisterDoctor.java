@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 
-public record DataRegister(
+public record DataRegisterDoctor(
 
 
         @NotBlank
@@ -25,9 +25,9 @@ public record DataRegister(
         String crm,
 
         @NotNull
-        Especialidade especialidade,
+        SpecialtyDoctor especialidade,
 
         @NotNull
         @Valid
-        DadosEndereco endereco ) {
+        DataAddressDoctor endereco ) {
 }

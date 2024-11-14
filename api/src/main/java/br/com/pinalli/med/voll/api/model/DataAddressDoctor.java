@@ -3,7 +3,7 @@ package br.com.pinalli.med.voll.api.model;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
-public record DadosEndereco(
+public record DataAddressDoctor(
 
         @NotBlank
         String logradouro,

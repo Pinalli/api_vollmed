@@ -1,6 +1,6 @@
 
 services:
-  app:
+  vollmed:
     build: .  # Apontando para o diretório raiz onde está o Dockerfile
     ports:
       - "8080:8080"

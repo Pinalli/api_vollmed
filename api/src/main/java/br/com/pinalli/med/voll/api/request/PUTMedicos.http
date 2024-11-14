@@ -1,0 +1,9 @@
+
+PUT  http://localhost:8080/medicos
+Content-Type: application/json
+
+{
+  "id": 1,
+  "telefone": "519887754"
+
+}
