@@ -1,0 +1,20 @@
+
+POST http://localhost:8080/pacientes
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmEuc291emFAdm9sbC5tZWQiLCJpc3MiOiJBUEkgVm9sbC5tZWQiLCJpZCI6MSwiZXhwIjoxNzMxNzk0MTc3fQ.oID1JcHcfT4CoXPIAN-7qrlhfXp3l9pVS3uSWTzNZFE
+Content-Type: application/json
+
+{
+  "nome": "João Silva",
+  "email": "joao.silva@email.com",
+  "telefone": "(11)99999-9999",
+  "cpf": "123.456.789-00",
+  "addressPatient": {
+    "logradouro": "Rua Exemplo",
+    "bairro": "Centro",
+    "cep": "12345678",
+    "cidade": "São Paulo",
+    "uf": "SP",
+    "numero": "123",
+    "complemento": "Apto 45"
+  }
+}

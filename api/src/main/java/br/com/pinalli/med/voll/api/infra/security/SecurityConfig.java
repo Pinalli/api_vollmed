@@ -2,9 +2,9 @@ package br.com.pinalli.med.voll.api.infra.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.web.PasswordManagementDsl;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -12,22 +12,42 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.handler.AbstractDetectingUrlHandlerMapping;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
+    private final SecurityFilter securityFilter;
+
+    public SecurityConfig(SecurityFilter securityFilter) {
+        this.securityFilter = securityFilter;
+    }
+
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http)
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, AbstractDetectingUrlHandlerMapping abstractDetectingUrlHandlerMapping)
             throws Exception {
-        return http
-                .csrf(AbstractHttpConfigurer::disable)
-                .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                )
-                .build();
+        try {
+            return http
+                    .csrf(AbstractHttpConfigurer::disable)
+                    .sessionManagement(session -> session
+                            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                    )
+                    .authorizeHttpRequests(auth -> auth
+                            .requestMatchers(HttpMethod.POST, "/login").permitAll()
+                            .anyRequest().authenticated()
+                    )
+                    .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+                    .build();
+        } catch (Exception e) {
+            throw new SecurityConfigurationException("Erro ao configurar segurança", e);
+        }
+    }
+    public static class SecurityConfigurationException extends RuntimeException {
+        public SecurityConfigurationException(String message, Throwable cause) {
+            super(message, cause);
+        }
     }
 
     @Bean

@@ -29,27 +29,27 @@ public class AddressDoctor {
         this.complemento = data.complemento();
     }
 
-    public void updateAddressDoctor(DataAddressDoctor endereco) {
-        if (endereco.logradouro() != null){
-            this.logradouro = endereco.logradouro();
+    public void updateAddressDoctor(DataAddressDoctor dataAddressDoctor) {
+        if (dataAddressDoctor.logradouro() != null){
+            this.logradouro = dataAddressDoctor.logradouro();
         }
-        if (endereco.bairro() != null){
-            this.bairro = endereco.bairro();
+        if (dataAddressDoctor.bairro() != null){
+            this.bairro = dataAddressDoctor.bairro();
         }
-        if (endereco.cep() != null){
-            this.cep = endereco.cep();
+        if (dataAddressDoctor.cep() != null){
+            this.cep = dataAddressDoctor.cep();
         }
-        if (endereco.uf() != null){
-            this.uf = endereco.uf();
+        if (dataAddressDoctor.uf() != null){
+            this.uf = dataAddressDoctor.uf();
         }
-        if (endereco.cidade() != null){
-            this.cidade = endereco.cidade();
+        if (dataAddressDoctor.cidade() != null){
+            this.cidade = dataAddressDoctor.cidade();
         }
-        if (endereco.numero() != null){
-            this.numero = endereco.numero();
+        if (dataAddressDoctor.numero() != null){
+            this.numero = dataAddressDoctor.numero();
         }
-        if (endereco.complemento() != null){
-            this.complemento = endereco.complemento();
+        if (dataAddressDoctor.complemento() != null){
+            this.complemento = dataAddressDoctor.complemento();
         }
     }
 }

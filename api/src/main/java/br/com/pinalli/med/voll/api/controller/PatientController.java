@@ -1,7 +1,7 @@
 package br.com.pinalli.med.voll.api.controller;
 import br.com.pinalli.med.voll.api.model.DataListPatient;
 import br.com.pinalli.med.voll.api.model.DataRegisterPatient;
-import br.com.pinalli.med.voll.api.model.DataUpdatePatient;
+import br.com.pinalli.med.voll.api.model.DataUpdateRegisterPatient;
 import br.com.pinalli.med.voll.api.model.Patient;
 import br.com.pinalli.med.voll.api.repository.PatitentRepository;
 import jakarta.validation.Valid;
@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("patients")
+@RequestMapping("pacientes")
 public class PatientController {
 
     @Autowired
@@ -37,7 +37,7 @@ public class PatientController {
 
     @PutMapping
     @Transactional
-    public void update(@RequestBody @Valid DataUpdatePatient dados) {
+    public void update(@RequestBody @Valid DataUpdateRegisterPatient dados) {
         var patient = repository.getReferenceById(dados.id());
         patient.updateData(dados);
     }

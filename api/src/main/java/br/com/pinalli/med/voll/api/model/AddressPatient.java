@@ -29,7 +29,7 @@ public class AddressPatient {
         this.complemento = daata.complemento();
     }
 
-    public void atualizarInformacoes(DataAddressPatient dataAddressPatient) {
+    public void updateAddressPatient(DataAddressPatient dataAddressPatient) {
         if (dataAddressPatient.logradouro() != null) {
             this.logradouro = dataAddressPatient.logradouro();
         }

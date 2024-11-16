@@ -3,7 +3,7 @@ package br.com.pinalli.med.voll.api.model;
 import jakarta.validation.constraints.NotNull;
 
 
-public record DataUpdatePatient(
+public record DataUpdateRegisterPatient(
         @NotNull
         Long id,
         String nome,

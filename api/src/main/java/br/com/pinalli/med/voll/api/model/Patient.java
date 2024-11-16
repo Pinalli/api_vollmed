@@ -38,7 +38,7 @@ public class Patient {
         this.endereco = new AddressPatient(data.addressPatient());
     }
 
-    public void updateData(DataUpdatePatient data) {
+    public void updateData(DataUpdateRegisterPatient data) {
         if (data.nome() != null) {
             this.nome = data.nome();
         }
@@ -46,7 +46,7 @@ public class Patient {
             this.telefone = data.telefone();
         }
         if (data.endereco() != null) {
-            this.endereco.atualizarInformacoes(data.endereco());
+            this.endereco.updateAddressPatient(data.endereco());
         }
 
     }
