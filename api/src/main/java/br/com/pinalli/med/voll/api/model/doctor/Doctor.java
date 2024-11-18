@@ -1,4 +1,4 @@
-package br.com.pinalli.med.voll.api.model;
+package br.com.pinalli.med.voll.api.model.doctor;
 
 import jakarta.persistence.*;
 import jakarta.validation.Valid;

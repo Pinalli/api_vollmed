@@ -1,8 +1,8 @@
 package br.com.pinalli.med.voll.api.controller;
-import br.com.pinalli.med.voll.api.model.DataListPatient;
-import br.com.pinalli.med.voll.api.model.DataRegisterPatient;
-import br.com.pinalli.med.voll.api.model.DataUpdateRegisterPatient;
-import br.com.pinalli.med.voll.api.model.Patient;
+import br.com.pinalli.med.voll.api.model.patient.DataListPatient;
+import br.com.pinalli.med.voll.api.model.patient.DataRegisterPatient;
+import br.com.pinalli.med.voll.api.model.patient.DataUpdateRegisterPatient;
+import br.com.pinalli.med.voll.api.model.patient.Patient;
 import br.com.pinalli.med.voll.api.repository.PatitentRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

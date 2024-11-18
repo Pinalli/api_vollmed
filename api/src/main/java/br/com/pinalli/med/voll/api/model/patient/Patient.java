@@ -1,4 +1,4 @@
-package br.com.pinalli.med.voll.api.model;
+package br.com.pinalli.med.voll.api.model.patient;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

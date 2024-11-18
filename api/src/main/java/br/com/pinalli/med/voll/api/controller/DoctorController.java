@@ -1,6 +1,6 @@
 package br.com.pinalli.med.voll.api.controller;
 
-import br.com.pinalli.med.voll.api.model.*;
+import br.com.pinalli.med.voll.api.model.doctor.*;
 import br.com.pinalli.med.voll.api.repository.DoctorRepository;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;

@@ -1,4 +1,4 @@
-package br.com.pinalli.med.voll.api.model;
+package br.com.pinalli.med.voll.api.model.patient;
 
 public record DataListPatient(Long id, String nome, String email, String cpf) {
 
