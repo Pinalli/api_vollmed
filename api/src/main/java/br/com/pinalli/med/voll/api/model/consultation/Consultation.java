@@ -35,6 +35,5 @@ public class Consultation {
 
     private LocalDateTime data;
 
-    public Consultation(Object o, Long aLong, @NotNull Long aLong1, @NotNull @Future LocalDateTime data, Object o1) {
-    }
+
 }

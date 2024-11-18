@@ -27,7 +27,7 @@ public class ToScheduleConsultation {
         if (!patitentRepository.existsById(data.idPatient())) {
             throw new EntityNotFoundException("Id do Paciente não encontrado");
         }
-        if (data.idDoctor() != null && doctorRepository.existsById(data.idDoctor())) {
+        if (data.idDoctor() != null && !doctorRepository.existsById(data.idDoctor())) {
             throw new EntityNotFoundException("Id do Médico não encontrado");
         }
 
