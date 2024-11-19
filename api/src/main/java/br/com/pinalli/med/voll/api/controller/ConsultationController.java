@@ -4,6 +4,7 @@ package br.com.pinalli.med.voll.api.controller;
 import br.com.pinalli.med.voll.api.model.consultation.DataSchedulingConsultation;
 
 import br.com.pinalli.med.voll.api.service.ToScheduleConsultation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/consultas")
+@SecurityRequirement(name = "bearer-key")
 public class ConsultationController {
 
     @Autowired

@@ -1,0 +1,11 @@
+Trello
+https://trello.com/b/O0lGCsKb/api-voll-med
+
+Figma
+https://www.figma.com/design/N4CgpJqsg7gjbKuDmra3EV/Voll.med
+
+The Swagger UI page will then be available at
+http://localhost:8080/swagger-ui.html
+and the OpenAPI description will be
+available at the following url for json format:
+http://localhost:8080v3/api-docs

@@ -4,6 +4,7 @@ import br.com.pinalli.med.voll.api.model.user.User;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -42,8 +43,9 @@ private String secret;
                     .build()
                     .verify(tokenJWT)
                     .getSubject();
-        } catch (JWTCreationException exception) {
-            throw new RuntimeException("Token JWT inválido ou expirado!");
+        } catch (JWTVerificationException exception) {
+            // Log e trate de forma adequada; neste caso, não lance outra exceção
+            return null; // Retorna null para que o filtro permita prosseguir sem autenticação
         }
     }
 

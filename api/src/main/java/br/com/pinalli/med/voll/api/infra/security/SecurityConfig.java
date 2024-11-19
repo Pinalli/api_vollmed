@@ -26,8 +26,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http, AbstractDetectingUrlHandlerMapping abstractDetectingUrlHandlerMapping)
-            throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) {
         try {
             return http
                     .csrf(AbstractHttpConfigurer::disable)
@@ -35,15 +34,18 @@ public class SecurityConfig {
                             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                     )
                     .authorizeHttpRequests(auth -> auth
+                            .requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll()
                             .requestMatchers(HttpMethod.POST, "/login").permitAll()
                             .anyRequest().authenticated()
                     )
+
                     .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                     .build();
         } catch (Exception e) {
             throw new SecurityConfigurationException("Erro ao configurar segurança", e);
         }
     }
+
     public static class SecurityConfigurationException extends RuntimeException {
         public SecurityConfigurationException(String message, Throwable cause) {
             super(message, cause);

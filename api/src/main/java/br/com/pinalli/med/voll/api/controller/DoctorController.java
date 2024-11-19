@@ -2,6 +2,7 @@ package br.com.pinalli.med.voll.api.controller;
 
 import br.com.pinalli.med.voll.api.model.doctor.*;
 import br.com.pinalli.med.voll.api.repository.DoctorRepository;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +14,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("medicos")
+@SecurityRequirement(name = "bearer-key")
 public class DoctorController {
 
     private final DoctorRepository repository;
