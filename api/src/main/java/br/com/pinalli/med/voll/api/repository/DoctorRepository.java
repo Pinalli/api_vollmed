@@ -16,4 +16,8 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
     Page<Doctor> findAllByActiveTrue(Pageable pagination);
     @Query("SELECT m FROM Medico  m WHERE m.especialidade= :specialty AND m.id NOT IN (SELECT c.doctor.id " +
             "FROM Consulta c WHERE c.data = :dateTime) ORDER BY FUNCTION('RAND')")
-    Doctor chooseRandomDoctorFreeOnDate(@Param("specialty") SpecialtyDoctor specialty, @Param("dateTime") LocalDateTime dateTime);}
+    Doctor chooseRandomDoctorFreeOnDate(@Param("specialty") SpecialtyDoctor specialty, @Param("dateTime") LocalDateTime dateTime);
+
+    @Query("SELECT m.active FROM Medico m WHERE m.id = :idDoctor")
+    Boolean findActiveById(Long idDoctor);
+}

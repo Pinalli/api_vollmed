@@ -19,11 +19,8 @@ public class Patient {
     private Long id;
     private String nome;
     private String email;
-
     private String telefone;
-
     private String cpf;
-
     @Embedded
     private AddressPatient endereco;
 

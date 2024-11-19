@@ -1,5 +1,6 @@
 package br.com.pinalli.med.voll.api.controller;
 
+
 import br.com.pinalli.med.voll.api.model.consultation.DataSchedulingConsultation;
 
 import br.com.pinalli.med.voll.api.service.ToScheduleConsultation;
@@ -23,8 +24,8 @@ public class ConsultationController {
     @PostMapping
     @Transactional
     public ResponseEntity<Object> toSchedule(@RequestBody @Valid DataSchedulingConsultation data) {
-        toScheduleConsultation.toSchedule(data);
-        return ResponseEntity.ok(new DataSchedulingConsultation(null, null, null, null));
+        var dto = toScheduleConsultation.toSchedule(data);
+        return ResponseEntity.ok(dto);
 
     }
 }
