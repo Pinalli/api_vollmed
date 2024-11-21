@@ -1,7 +1,6 @@
-
 services:
   vollmed:
-    build: .  # Apontando para o diretório raiz onde está o Dockerfile
+    build: .
     ports:
       - "8080:8080"
     environment:
@@ -11,11 +10,12 @@ services:
     depends_on:
       mysql-vollmed:
         condition: service_healthy
-    restart: unless-stopped  # Adiciona resiliência
+
+    restart: unless-stopped
 
   mysql-vollmed:
     image: mysql:8.0
-    container_name:  mysql-vollmed
+    container_name: mysql-vollmed
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: vollmed
@@ -23,12 +23,15 @@ services:
       MYSQL_PASSWORD: password
     ports:
       - "3306:3306"
-
     healthcheck:
       test: [ "CMD", "mysqladmin", "ping", "-h", "mysql-vollmed", "-u", "root", "-p$$MYSQL_ROOT_PASSWORD" ]
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 30s
+    restart: unless-stopped
 
-    restart: unless-stopped  # Adiciona resiliência
+
+networks:
+  app-network:
+    driver: bridge

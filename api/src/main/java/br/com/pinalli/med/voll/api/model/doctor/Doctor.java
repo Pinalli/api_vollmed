@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Table(name = "medicos")
-@Entity(name = "Medico")
+@Entity(name = "Doctor")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,16 +29,19 @@ public class Doctor {
     @Embedded
     private AddressDoctor endereco;
 
-    private boolean active;
+    private boolean ativo;
 
     public Doctor(DataRegisterDoctor data) {
-        this.active = true;
+        this.ativo = true;
         this.nome = data.nome();
         this.email= data.email();
         this.telefone = data.telefone();
         this.crm = data.crm();
         this.especialidade = data.especialidade();
         this.endereco = new AddressDoctor(data.endereco());
+    }
+
+    public Doctor(Object o, String s, String mail, String number, SpecialtyDoctor specialtyDoctor, AddressDoctor doctorAddress) {
     }
 
 
@@ -55,6 +58,6 @@ public class Doctor {
     }
 
     public void delete() {
-        this.active = false;
+        this.ativo = false;
     }
 }

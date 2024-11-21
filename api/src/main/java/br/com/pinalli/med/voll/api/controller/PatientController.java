@@ -1,10 +1,10 @@
 package br.com.pinalli.med.voll.api.controller;
+
 import br.com.pinalli.med.voll.api.model.patient.DataListPatient;
 import br.com.pinalli.med.voll.api.model.patient.DataRegisterPatient;
 import br.com.pinalli.med.voll.api.model.patient.DataUpdateRegisterPatient;
 import br.com.pinalli.med.voll.api.model.patient.Patient;
 import br.com.pinalli.med.voll.api.repository.PatitentRepository;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -24,12 +24,15 @@ server:
   error:
     include-stacktrace: never
 
-api.security:
-  token:
-    secret: ${JWT_SECRET:123456}
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:123456}
 
 logging:
   level:
     org:
       springframework:
-        security=DEBUG:
+        security: DEBUG
+      hibernate:
+        SQL: DEBUG

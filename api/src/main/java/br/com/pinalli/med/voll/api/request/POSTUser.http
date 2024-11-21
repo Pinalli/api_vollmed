@@ -1,8 +1,8 @@
 ### Login para obter o token
-POST http://localhost:8080/login
+POST http://localhost:8080/user
 Content-Type: application/json
 
 {
   "login": "ana.souza@voll.med",
-  "senha": "123456"
+  "password": "123456"
 }

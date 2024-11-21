@@ -34,7 +34,7 @@ public class DoctorController {
 
     @GetMapping
     public  ResponseEntity<Page<DataListDoctor>>list(Pageable pagination){
-       var page =  repository.findAllByActiveTrue(pagination).map(DataListDoctor::new);
+       var page =  repository.findAllByAtivoTrue(pagination).map(DataListDoctor::new);
         return ResponseEntity.ok(page);
     }
 

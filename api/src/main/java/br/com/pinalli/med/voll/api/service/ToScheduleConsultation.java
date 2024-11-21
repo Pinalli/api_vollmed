@@ -7,6 +7,7 @@ import br.com.pinalli.med.voll.api.model.consultation.DataDetailsConsultation;
 import br.com.pinalli.med.voll.api.model.consultation.DataSchedulingConsultation;
 import br.com.pinalli.med.voll.api.model.consultation.validations.ValidatorSchedulingConsulatation;
 import br.com.pinalli.med.voll.api.model.doctor.Doctor;
+import br.com.pinalli.med.voll.api.model.doctor.SpecialtyDoctor;
 import br.com.pinalli.med.voll.api.repository.ConsultationRepository;
 import br.com.pinalli.med.voll.api.repository.DoctorRepository;
 import br.com.pinalli.med.voll.api.repository.PatitentRepository;
@@ -61,6 +62,6 @@ public class ToScheduleConsultation {
         if (data.specialtyDoctor() == null) {
             throw new EntityNotFoundException("Especialidade é obrigatória quando médico não for escolhido");
         }
-        return doctorRepository.chooseRandomDoctorFreeOnDate(data.specialtyDoctor(), data.data());
+        return doctorRepository.chooseRandomDoctorFreeOnDate(SpecialtyDoctor.CARDIOLOGIA, data.data());
     }
 }

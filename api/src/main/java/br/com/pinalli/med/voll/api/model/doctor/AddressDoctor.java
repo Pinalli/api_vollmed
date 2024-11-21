@@ -29,6 +29,9 @@ public class AddressDoctor {
         this.complemento = data.complemento();
     }
 
+    public AddressDoctor(Object o, String streetTest, String neighborhood, String s, String city, String state) {
+    }
+
     public void updateAddressDoctor(DataAddressDoctor dataAddressDoctor) {
         if (dataAddressDoctor.logradouro() != null){
             this.logradouro = dataAddressDoctor.logradouro();

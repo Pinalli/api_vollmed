@@ -15,8 +15,8 @@ import java.util.Collection;
 import java.util.List;
 
 
-@Table(name = "users")
-@Entity(name = "Users")
+@Table(name = "usuarios")
+@Entity(name = "User")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,12 +31,15 @@ public class User  implements UserDetails{
     private String login;
 
     @Getter
-    private String password;
+    private String senha;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
+
+    @Override
+    public String getPassword() { return senha; }
 
     @Override
     public String getUsername() {
