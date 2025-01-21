@@ -1,11 +1,12 @@
 
 POST http://localhost:8080/consultas
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmEuc291emFAdm9sbC5tZWQiLCJpc3MiOiJBUEkgVm9sbC5tZWQiLCJpZCI6MSwiZXhwIjoxNzMxOTgxMTE2fQ.ZM51naUqC_4WeggmpMaWQowf_Q2bAQWs8iCpv2xQumY
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmEuc291emFAdm9sbC5tZWQiLCJpc3MiOiJBUEkgVm9sbC5tZWQiLCJpZCI6MSwiZXhwIjoxNzMzMzQ2MTQ1fQ.24x5UTGcv4A05LeyHlhXHFY_E8oV3BhxyoJy45PS6v4
 Content-Type: application/json
 
 {
-"idPatient": 2,
-"idDoctor": 9,
-"data":"2024-11-24T10:00"
+"idPatient": 1,
+"idDoctor": 1,
+"data":"2024-12-05T10:00"
 }
+

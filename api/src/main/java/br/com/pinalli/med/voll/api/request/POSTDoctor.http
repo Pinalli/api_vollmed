@@ -1,7 +1,7 @@
 
 POST http://localhost:8080/medicos
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmEuc291emFAdm9sbC5tZWQiLCJpc3MiOiJBUEkgVm9sbC5tZWQiLCJpZCI6MSwiZXhwIjoxNzMyMjI1MDg4fQ.8PvxZaxDqeUbBzzTr6hFw0hwxt7Hj4YWon1IexgBod8
+Authorization: Bearer:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmEuc291emFAdm9sbC5tZWQiLCJpc3MiOiJBUEkgVm9sbC5tZWQiLCJpZCI6MSwiZXhwIjoxNzMzMzQ2MTQ1fQ.24x5UTGcv4A05LeyHlhXHFY_E8oV3BhxyoJy45PS6v4
 
 {
 "nome": "Gabriel Milano",
